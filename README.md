@@ -56,6 +56,27 @@ Describe:
 * VS Code
 * Google Chrome/Mozilla Firefox
 
+## Whiteboarding
+
+This project was planned with a recorded whiteboarding session available for download or listen. Refer to an audio file in `./whiteboard`.
+
+A user should be able to type in an amount (in U.S. dollars) and then choose which currency it should be converted to (such as francs, marks, rupees, and so on). To determine the most recent exchange rate, your application will make an API call to the following exchange rate API.
+
+* A user should be able to enter an amount (in U.S. dollars) and then specify another currency (such as the South Korean won). The user should then see the total amount they entered in converted currency. In the example above, a user might enter 10 dollars and then see that amount in South Korean won.
+* Users should be able to convert U.S. currency into at least 5 other types of currency.
+* If the API call results in an error (any message not a 200 OK), the application should return a notification to the user that states what the error is. (That means the error should show up in the DOM, not in the console.)
+* If the query response doesn't include that particular currency, the application should return a notification that states the currency in question doesn't exist. (Note: Even if you use a dropdown menu to specify currencies instead of a form field, you'll still need to add this functionality to your code.)
+
+HTML requires a form; we'll need to build that out with a few elements:
+* text input
+* dropdown menu with the available currencies for exchange populated on page load with an API call
+  * use fetch to call the API and handle any errors
+  * use a for loop to populate a dropdown with option tags that include the currency and the value of the exchange rate
+* make the API call on page load and store it in a variable
+* make sure that the currency returned is in the right format
+* make sure that the input is only a number, or that I specify logic for edge cases in which the input is NaN
+
+
 ## **MIT License**
 
 Copyright (c) 2021 Jonathan Stull

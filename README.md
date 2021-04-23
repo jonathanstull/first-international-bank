@@ -1,12 +1,12 @@
-# Project Name
+# First International Bank
 
-### Title, Date
+### A Week VI Epicodus Project, 23 April 2021
 
 _By Jonathan Stull_
 
 ## **Description**
 
-
+First International Bank returns the exchange rate and converts the amount of one currency to the amount of another using the [ExchangeRate API](https://www.exchangerate-api.com/).
 
 ## **Setup/Installation Requirements**
 
@@ -20,11 +20,16 @@ _By Jonathan Stull_
   3. Double-click the index.html to open it in your web browser
 
 * Open via Bash/GitBash:
-  1. Clone this repository onto your computer: git clone [mr-robogers](https://github.com/jonathanstull/mr-robogers.git)
-  2. Navigate into the ~/mr-robogers  directory, and open in VSCode or preferred text editor code .
+  1. Clone this repository onto your computer: git clone [https://github.com/jonathanstull/first-international-bank.git](https://github.com/jonathanstull/first-international-bank.git)
+  2. Navigate into the ~/first-international-bank directory, and open in VSCode or preferred text editor code .
   3. Open index.html in Chrome or preferred browser
 
-To see my live website, go to [GitHub Pages](https://jonathanstull.github.io/mr-robogers/)!
+* API Instructions
+  1. Visit [ExchangeRate API](https://www.exchangerate-api.com/).
+  2. Input your email address and click the "Get Free Key" button.
+  3. Follow the prompts to create an account with your email, first name and a password.
+  4. Agree to the terms of use and click "Get Started!" You will receive access to a dashboard that includes your API key as well as your remaining API calls for the month.
+  5. Confirm your email address if desired and store the API key in your .env.
 
 ## **Known Bugs**
 
@@ -32,12 +37,10 @@ To see my live website, go to [GitHub Pages](https://jonathanstull.github.io/mr-
 
 ## **Specs**
 
-* 
-* 
-* 
-* 
-* 
-* 
+* A user should be able to enter an amount (in U.S. dollars) and then specify another currency (such as the South Korean won). The user should then see the total amount they entered in converted currency. In the example above, a user might enter 10 dollars and then see that amount in South Korean won.
+* Users should be able to convert U.S. currency into at least 5 other types of currency.
+* If the API call results in an error (any message not a 200 OK), the application should return a notification to the user that states what the error is. (That means the error should show up in the DOM, not in the console.)
+* If the query response doesn't include that particular currency, the application should return a notification that states the currency in question doesn't exist. (Note: Even if you use a dropdown menu to specify currencies instead of a form field, you'll still need to add this functionality to your code.)
 
 ## **Tests**
 
@@ -61,11 +64,6 @@ Describe:
 This project was planned with a recorded whiteboarding session available for download or listen. Refer to an audio file in `./whiteboard`.
 
 A user should be able to type in an amount (in U.S. dollars) and then choose which currency it should be converted to (such as francs, marks, rupees, and so on). To determine the most recent exchange rate, your application will make an API call to the following exchange rate API.
-
-* A user should be able to enter an amount (in U.S. dollars) and then specify another currency (such as the South Korean won). The user should then see the total amount they entered in converted currency. In the example above, a user might enter 10 dollars and then see that amount in South Korean won.
-* Users should be able to convert U.S. currency into at least 5 other types of currency.
-* If the API call results in an error (any message not a 200 OK), the application should return a notification to the user that states what the error is. (That means the error should show up in the DOM, not in the console.)
-* If the query response doesn't include that particular currency, the application should return a notification that states the currency in question doesn't exist. (Note: Even if you use a dropdown menu to specify currencies instead of a form field, you'll still need to add this functionality to your code.)
 
 HTML requires a form; we'll need to build that out with a few elements:
 * text input

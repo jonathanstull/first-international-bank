@@ -9,7 +9,7 @@ function showRates(response) {
   if (response.conversion_rates) {
     $('#converted-currency').html(`<p>Demonstrate successful API call by showing the USD exchange rate: ${response.conversion_rates.USD}</p>`);
   } else {
-    $('#response-error').html(`<p>There was an error processing your request: ${response.message}</p>`);
+    $('#response-error').html(`<p>There was an error processing your request: ${response["error-type"]}</p>`);
   }
 }
 

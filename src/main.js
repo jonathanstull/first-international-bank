@@ -5,11 +5,9 @@ import './css/styles.css';
 import CurrencyConversion from './js/exchange-service.js';
 
 function showRates(response) {
-  console.log(response);
   if (response.conversion_rates) {
     let currencyArray = Object.entries(response.conversion_rates);
     currencyArray.forEach(function(countryCurrency) {
-      console.log(currencyArray);
       $('#currency-origin').append(`<option value="${countryCurrency[1]}">${countryCurrency[0]}</option>`);
       $('#currency-target').append(`<option value="${countryCurrency[1]}">${countryCurrency[0]}</option>`);
     });
@@ -20,11 +18,14 @@ function showRates(response) {
 
 function convertCurrency(exchangeAmount, originRate, targetRate) {
   return (exchangeAmount / originRate) * targetRate;
-  // let convertedAmount;
-  // // convert to USD
-  // let amountInUsd = exchangeAmount / originRate;
-  // // convert to foreign currency
-  // convertedAmount = amountInUsd * targetRate;
+}
+
+function showConversion(originRate, targetRate, convertedAmount) {
+  let originCurrency = $('#currency-origin option:selected').text();
+  let targetCurrency = $('#currency-target option:selected').text();
+  let exchangeRate = (1 / originRate) * targetRate;
+  $('#converted-currency').html(`<h3>${targetCurrency}${convertedAmount}</h3>`);
+  $('#conversion-information').append(`<p>The going exchange rate from ${originCurrency} to ${targetCurrency} is ${exchangeRate}.</p>`);
 }
 
 $(document).ready(function() {
@@ -37,6 +38,6 @@ $(document).ready(function() {
     let originRate = $('#currency-origin').val();
     let targetRate = $('#currency-target').val();
     let convertedAmount = convertCurrency(exchangeAmount, originRate, targetRate);
-    console.log(convertedAmount);
+    showConversion(originRate, targetRate, convertedAmount);
   });
 });

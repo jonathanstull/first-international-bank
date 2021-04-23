@@ -16,16 +16,20 @@
     </div>
 
     <!-- currency input fields -->
-    <label for="currency-input">Calculate the conversion of </label>
+    <label for="currency-input">Convert </label>
     <input name="currency-input" id="currency-input" type="number" placeholder="10.00" step="10.00" min="0.01">
     <label for="currency-code">into</label>
     <select name="currency-code" id="currency-code">
       <!-- input populated with business logic -->
     </select>
+    <button type="button" id="convert-btn">Calculate</button>
 
     <!-- currency conversion output div -->
     <div id="converted-currency">
       <!-- converted currency populated with business logic -->
+    </div>
+    <div id="response-error">
+      <!-- response error populated with business logic -->
     </div>
   </div>
   

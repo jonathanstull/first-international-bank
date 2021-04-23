@@ -28,11 +28,6 @@ function showConversion(originCurrency, originRate, targetRate, convertedAmount)
   $('#conversion-information').append(`<p>The going exchange rate from ${originCurrency} to ${targetCurrency} is ${exchangeRate}.</p>`);
 }
 
-// async function callApi() {
-//   const response = await CurrencyConversion.getLatestConversionRatesAgain();
-//   return response;
-// }
-
 function throwConversionError(response) {
   let currencyArray = Object.keys(response.conversion_rates);
   let originCurrency = $('#currency-origin option:selected').text();
@@ -40,7 +35,6 @@ function throwConversionError(response) {
     $('#error').html(`<p>The requested currency either does not exist or the exchange rate is not available.</p>`);
   }
 }
-
 
 $(document).ready(function() {
   CurrencyConversion.getLatestConversionRates()

@@ -17,28 +17,32 @@
     </div>
 
     <!-- currency input fields -->
-    <label for="currency-origin">Convert</label>
-    <select name="currency-origin" id="currency-origin">
-      <!-- option input populated with business logic -->
-    </select>
-    <label for="currency-input"></label>
-    <input name="currency-input" id="currency-input" type="number" placeholder="10.00" step="10.00" min="0.01">
-    <label for="currency-target">into</label>
-    <select name="currency-target" id="currency-target">
-      <!-- option input populated with business logic -->
-    </select>
-    <button type="button" id="convert-btn">Calculate</button>
-
+    <div id="input-fields">
+      <label for="currency-origin">Convert</label>
+      <select name="currency-origin" id="currency-origin">
+        <!-- option input populated with business logic -->
+      </select>
+      <label for="currency-input"></label>
+      <input name="currency-input" id="currency-input" type="number" placeholder="10.00" step="10.00" min="0.01">
+      <label for="currency-target">into</label>
+      <select name="currency-target" id="currency-target">
+        <!-- option input populated with business logic -->
+      </select>
+      <button type="button" id="convert-btn">Calculate</button>
+    </div>
+    
     <!-- currency conversion output divs -->
-    <div id="converted-currency">
-      <!-- converted currency populated with function convertCurrency -->
-      </div>
-    <div id="conversion-information">
-      <!-- conversion information populated with function showConversion -->
-      </div>
-    <div id="error">
-      <!-- response error populated with function showRates -->
-      </div>
+    <div id="output-divs">
+      <div id="converted-currency">
+        <!-- converted currency populated with function convertCurrency -->
+        </div>
+      <div id="conversion-information">
+        <!-- conversion information populated with function showConversion -->
+        </div>
+      <div id="error">
+        <!-- response error populated with function showRates -->
+        </div>
+    </div>
   </div>
   
 </body>

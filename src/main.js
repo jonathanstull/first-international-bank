@@ -18,13 +18,15 @@ function showCurrencies(response) {
 }
 
 function convertCurrency(exchangeAmount, originRate, targetRate) {
-  return (exchangeAmount / originRate) * targetRate;
+  let targetCurrency = $('#currency-target option:selected').text();
+  let convertedAmount = (exchangeAmount / originRate) * targetRate;
+  return convertedAmount.toLocaleString('en-US', { style: 'currency', currency: targetCurrency });
 }
 
 function showConversion(originCurrency, originRate, targetRate, convertedAmount) {
   let targetCurrency = $('#currency-target option:selected').text();
   let exchangeRate = (1 / originRate) * targetRate;
-  $('#converted-currency').html(`<h3>${targetCurrency}${convertedAmount}</h3>`);
+  $('#converted-currency').html(`<h3>${convertedAmount}</h3>`);
   $('#conversion-information').append(`<p>The going exchange rate from ${originCurrency} to ${targetCurrency} is ${exchangeRate}.</p>`);
 }
 
@@ -36,12 +38,19 @@ function throwConversionError(response) {
   }
 }
 
+function clearOutputDivs() {
+  $('#converted-currency').html("");
+  $('#conversion-information').html("");
+  $('#error').html("");
+}
+
 $(document).ready(function() {
   CurrencyConversion.getLatestConversionRates()
     .then(function(response) {
       showCurrencies(response);
     });
   $('#convert-btn').click(function() {
+    clearOutputDivs();
     let originCurrency = $('#currency-origin option:selected').text();
     let exchangeAmount = $('#currency-input').val();
     let originRate = $('#currency-origin').val();

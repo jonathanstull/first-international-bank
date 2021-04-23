@@ -16,10 +16,14 @@
     </div>
 
     <!-- currency input fields -->
-    <label for="currency-input">Convert </label>
+    <label for="currency-origin">Convert</label>
+    <select name="currency-origin" id="currency-origin">
+      <!-- option input populated with business logic -->
+    </select>
+    <label for="currency-input"></label>
     <input name="currency-input" id="currency-input" type="number" placeholder="10.00" step="10.00" min="0.01">
-    <label for="currency-code">into</label>
-    <select name="currency-code" id="currency-code">
+    <label for="currency-target">into</label>
+    <select name="currency-target" id="currency-target">
       <!-- option input populated with business logic -->
     </select>
     <button type="button" id="convert-btn">Calculate</button>

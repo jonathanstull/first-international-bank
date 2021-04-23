@@ -7,7 +7,10 @@ import CurrencyConversion from './js/exchange-service.js';
 function showRates(response) {
   console.log(response);
   if (response.conversion_rates) {
-    $('#converted-currency').html(`<p>Demonstrate successful API call by showing the USD exchange rate: ${response.conversion_rates.USD}</p>`);
+    let currencyArray = Object.entries(response.conversion_rates)
+    currencyArray.forEach(function(countryCurrency) {
+      $('#currency-code').append(`<option value="${countryCurrency[1]}">${countryCurrency[0]}</option>`);
+    })
   } else {
     $('#response-error').html(`<p>There was an error processing your request: ${response["error-type"]}</p>`);
   }

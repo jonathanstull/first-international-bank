@@ -4,16 +4,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import CurrencyConversion from './js/exchange-service.js';
 
-
 function showCurrencies(response) {
-  let currencyArray = Object.entries(response.conversion_rates);
-  if (response.conversion_rates) {
-    currencyArray.forEach(function(countryCurrency) {
-      $('#currency-origin').append(`<option value="${countryCurrency[1]}">${countryCurrency[0]}</option>`);
-      $('#currency-target').append(`<option value="${countryCurrency[1]}">${countryCurrency[0]}</option>`);
-    });
-  } else {
-    $('#error').html(`<p>There was an error processing your request: ${response["error-type"]}</p>`);
+  const conversionRates = response.conversion_rates;
+  for (const property in conversionRates) {
+    sessionStorage.setItem(property, conversionRates[property]);
+    $('#currency-origin').append(`<option value="${conversionRates[property]}">${property}</option>`);
+    $('#currency-target').append(`<option value="${conversionRates[property]}">${property}</option>`);
   }
 }
 
@@ -30,10 +26,10 @@ function showConversion(originCurrency, originRate, targetRate, convertedAmount)
   $('#conversion-information').append(`<p>The going exchange rate from ${originCurrency} to ${targetCurrency} is ${exchangeRate}.</p>`);
 }
 
-function throwConversionError(response) {
-  let currencyArray = Object.keys(response.conversion_rates);
+function throwConversionError() {
   let originCurrency = $('#currency-origin option:selected').text();
-  if (currencyArray.includes(originCurrency) === false) {
+  let sessionCurrencyKeys = Object.keys(sessionStorage);
+  if (sessionCurrencyKeys.includes(originCurrency) === false) {
     $('#error').html(`<p>The requested currency either does not exist or the exchange rate is not available.</p>`);
   }
 }
@@ -56,10 +52,7 @@ $(document).ready(function() {
     let originRate = $('#currency-origin').val();
     let targetRate = $('#currency-target').val();
     let convertedAmount = convertCurrency(exchangeAmount, originRate, targetRate);
-    CurrencyConversion.getLatestConversionRates()
-      .then(function(response) {
-        throwConversionError(response);
-      });
+    throwConversionError();
     showConversion(originCurrency, originRate, targetRate, convertedAmount);
   });
 });

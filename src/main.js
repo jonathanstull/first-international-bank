@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import CurrencyConversion from './js/exchange-service.js';
 
-function showCurrencies(response) {
+function storeCurrencies(response) {
   const conversionRates = response.conversion_rates;
   for (const property in conversionRates) {
     sessionStorage.setItem(property, conversionRates[property]);
@@ -43,7 +43,7 @@ function clearOutputDivs() {
 $(document).ready(function() {
   CurrencyConversion.getLatestConversionRates()
     .then(function(response) {
-      showCurrencies(response);
+      storeCurrencies(response);
     });
   $('#convert-btn').click(function() {
     clearOutputDivs();

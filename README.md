@@ -22,7 +22,12 @@ First International Bank returns the exchange rate and converts the amount of on
 * Open via Bash/GitBash:
   1. Clone this repository onto your computer: git clone [https://github.com/jonathanstull/first-international-bank.git](https://github.com/jonathanstull/first-international-bank.git)
   2. Navigate into the ~/first-international-bank directory, and open in VSCode or preferred text editor code .
-  3. Open index.html in Chrome or preferred browser
+  4. To start a development server and view the project in the browser:
+    * Navigate to `first-international-bank/` in your command line
+    * Run the command `npm install` to install dependencies
+    * Optionally, run the commmand `npm run build` to make a bundle of the files
+    * Finally, run the command `npm run start` to start a development server
+  5. To run tests, navigate to `my-project/` in your terminal and run the command `npm run test`
 
 * API Instructions
   1. Visit [ExchangeRate API](https://www.exchangerate-api.com/).

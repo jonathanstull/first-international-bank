@@ -5,11 +5,15 @@ import './css/styles.css';
 import CurrencyConversion from './js/exchange-service.js';
 
 function storeCurrencies(response) {
-  const conversionRates = response.conversion_rates;
-  for (const property in conversionRates) {
-    sessionStorage.setItem(property, conversionRates[property]);
-    $('#currency-origin').append(`<option value="${conversionRates[property]}">${property}</option>`);
-    $('#currency-target').append(`<option value="${conversionRates[property]}">${property}</option>`);
+  if (response.main) {
+    const conversionRates = response.conversion_rates;
+    for (const property in conversionRates) {
+      sessionStorage.setItem(property, conversionRates[property]);
+      $('#currency-origin').append(`<option value="${conversionRates[property]}">${property}</option>`);
+      $('#currency-target').append(`<option value="${conversionRates[property]}">${property}</option>`);
+    } 
+  } else {
+    $('#error').html(`<p>Currency data could not be downloaded.</p>`)
   }
 }
 

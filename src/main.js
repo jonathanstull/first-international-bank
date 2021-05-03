@@ -5,7 +5,7 @@ import './css/styles.css';
 import CurrencyConversion from './js/exchange-service.js';
 
 function storeCurrencies(response) {
-  if (response.main) {
+  if (response) {
     const conversionRates = response.conversion_rates;
     for (const property in conversionRates) {
       sessionStorage.setItem(property, conversionRates[property]);

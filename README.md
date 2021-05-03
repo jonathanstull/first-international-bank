@@ -17,7 +17,6 @@ First International Bank returns the exchange rate and converts the amount of on
 * Download/clone instructions
   1. Download this repository onto your computer by clicking the 'code' button
   2. Open the project folder.
-  3. Double-click the index.html to open it in your web browser
 
 * Open via Bash/GitBash:
   1. Clone this repository onto your computer: git clone [https://github.com/jonathanstull/first-international-bank.git](https://github.com/jonathanstull/first-international-bank.git)
@@ -27,7 +26,6 @@ First International Bank returns the exchange rate and converts the amount of on
     * Run the command `npm install` to install dependencies
     * Optionally, run the commmand `npm run build` to make a bundle of the files
     * Finally, run the command `npm run start` to start a development server
-  5. To run tests, navigate to `my-project/` in your terminal and run the command `npm run test`
 
 * API Instructions
   1. Visit [ExchangeRate API](https://www.exchangerate-api.com/).
@@ -47,14 +45,6 @@ First International Bank returns the exchange rate and converts the amount of on
 * If the API call results in an error (any message not a 200 OK), the application should return a notification to the user that states what the error is. (That means the error should show up in the DOM, not in the console.)
 * If the query response doesn't include that particular currency, the application should return a notification that states the currency in question doesn't exist. (Note: Even if you use a dropdown menu to specify currencies instead of a form field, you'll still need to add this functionality to your code.)
 
-## **Tests**
-
-Describe: 
-  1. Test: <br>
-  Code: <br>
-  <br>
-  Expected Output: <br>
-
 ## **Technologies Used**
 
 * HTML/CSS
@@ -63,6 +53,9 @@ Describe:
 * Markdown
 * VS Code
 * Google Chrome/Mozilla Firefox
+* Node Package Manager
+* webpack
+* ExchangeRate API
 
 ## Whiteboarding
 
